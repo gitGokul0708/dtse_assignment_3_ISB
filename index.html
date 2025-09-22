@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PredictionMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #d1d5db;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Fixed Navigation Bar -->
+    <nav class="fixed top-0 inset-x-0 z-50 bg-black bg-opacity-90 shadow-lg backdrop-blur-md">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="#mission" class="text-3xl font-bold text-red-500 hover:text-red-400 transition-colors">PM</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#mission" class="text-gray-300 font-medium hover:text-white transition-colors">Mission</a>
+                    <a href="#personas" class="text-gray-300 font-medium hover:text-white transition-colors">Personas</a>
+                    <a href="#what-is" class="text-gray-300 font-medium hover:text-white transition-colors">What It Is</a>
+                    <a href="#how-to" class="text-gray-300 font-medium hover:text-white transition-colors">How To</a>
+                    <a href="#examples" class="text-gray-300 font-medium hover:text-white transition-colors">Examples</a>
+                    <a href="#widgets" class="text-gray-300 font-medium hover:text-white transition-colors">Widgets</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8 pt-24 max-w-7xl">
+
+        <!-- Header and Mission Statement -->
+        <header id="mission" class="text-center py-16 bg-gray-900 rounded-lg shadow-lg mb-12">
+            <h1 class="text-5xl font-bold text-red-500 mb-4">PredictionMart</h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                Our mission is to empower individuals to turn their insights into profit by creating a transparent,
+                accessible, and dynamic prediction market where the wisdom of the crowd drives the future.
+            </p>
+        </header>
+
+        <!-- Persona Section -->
+        <section id="personas" class="bg-gray-900 rounded-lg shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-semibold text-white mb-6">Our Customer Personas</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-red-500 mb-2">The Savvy Investor</h3>
+                    <p class="text-gray-300">
+                        Sarah, a financial analyst, uses PredictionMart to hedge her bets on market trends and political outcomes. She is data-driven and seeks an edge beyond traditional markets.
+                    </p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-red-500 mb-2">The Enthusiastic Fan</h3>
+                    <p class="text-gray-300">
+                        Mark loves sports and entertainment. He uses PredictionMart to speculate on game winners, movie box office results, and celebrity news, enjoying the thrill of using his insider knowledge.
+                    </p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-red-500 mb-2">The Casual Observer</h3>
+                    <p class="text-gray-300">
+                        Lisa is new to prediction markets. She is intrigued by the concept and starts by placing small bets on simple events, using the platform to learn and engage with current events in a new way.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conceptual Preliminaries -->
+        <section id="what-is" class="bg-gray-900 rounded-lg shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-semibold text-white mb-4">What is a Prediction Market?</h2>
+            <p class="text-gray-300 mb-4">
+                A prediction market is an exchange-traded market created for the purpose of trading contracts whose value is dependent on the outcome of an event. For example, a contract might pay out $1.00 if a specific political candidate wins an election and $0.00 if they lose.
+            </p>
+            <h3 class="text-2xl font-semibold text-white mb-2">The Mechanics of Trading</h3>
+            <div class="space-y-6">
+                <div>
+                    <h4 class="text-xl font-semibold text-red-500">1. Event Definition</h4>
+                    <p class="text-gray-300">
+                        An event with uncertain outcomes is defined. Each outcome gets a contract (often binary: Yes/No).
+                    </p>
+                    <ul class="list-disc list-inside text-gray-400 mt-2 ml-4 space-y-1">
+                        <li>“Will Kamala Harris win the 2024 U.S. Presidential Election?”</li>
+                        <li>“Will Apple release an AI-powered iPhone by June 2025?”</li>
+                        <li>“Will global temperatures exceed 1.5°C above pre-industrial levels in 2024?”</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold text-red-500">2. Trading Contracts</h4>
+                    <p class="text-gray-300">
+                        Participants buy or sell shares tied to outcomes: A “Yes” share pays out $1 if the event happens, $0 if not. A “No” share pays $1 if it doesn’t happen, $0 if it does. Prices range from $0.00 to $1.00.
+                    </p>
+                    <p class="text-gray-300 mt-2">
+                        For example, if “Will SpaceX land Starship on Mars by 2030?” is trading at $0.22 for “Yes”, the market believes there’s a 22% chance it will happen.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold text-red-500">3. Price = Probability</h4>
+                    <p class="text-gray-300">
+                        Market prices reflect aggregated beliefs. A price of <strong>$0.85</strong> means there's an <strong>85%</strong> chance the event will occur. A price of <strong>$0.05</strong> suggests a <strong>5%</strong> chance, meaning the market thinks it’s very unlikely. This is similar to how stock prices reflect collective expectations about a company’s value.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold text-red-500">4. Settlement</h4>
+                    <p class="text-gray-300">
+                        After the event occurs (or deadline passes), contracts pay out. “Yes” holders get $1 per share if the outcome is true. “No” holders get $1 per share if the outcome is false. All other contracts expire worthless. Profits/losses are calculated as follows: (Payout - Purchase Price) multiplied by the number of shares.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operational Details -->
+        <section id="how-to" class="bg-gray-900 rounded-lg shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-semibold text-white mb-4">How to Participate</h2>
+            <ol class="list-decimal list-inside text-gray-300 space-y-4">
+                <li class="pl-2">
+                    <span class="font-medium text-white">Sign Up:</span> Create your secure account in minutes.
+                </li>
+                <li class="pl-2">
+                    <span class="font-medium text-white">Deposit Funds:</span> Securely add funds to your account via our supported payment methods.
+                </li>
+                <li class="pl-2">
+                    <span class="font-medium text-white">Browse Markets:</span> Explore a wide range of markets on topics from sports to politics to technology.
+                </li>
+                <li class="pl-2">
+                    <span class="font-medium text-white">Buy Shares:</span> Purchase shares in the outcomes you believe will happen. The share price reflects the current probability.
+                </li>
+                <li class="pl-2">
+                    <span class="font-medium text-white">Collect Payoffs:</span> If your predicted outcome occurs, your shares are automatically redeemed for $1.00 each.
+                </li>
+            </ol>
+        </section>
+
+        <!-- Example Transactions -->
+        <section id="examples" class="bg-gray-900 rounded-lg shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-semibold text-white mb-4">Example Transactions</h2>
+            <div class="space-y-8">
+                <div class="bg-gray-800 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Example 1: The Political Election</h3>
+                    <p class="text-gray-300 mb-2">
+                        You believe Candidate A will win an election. The shares for "Candidate A wins" are currently trading at $0.40. You buy 100 shares for a total investment of $40.
+                    </p>
+                    <p class="font-semibold text-gray-100 mt-4">Scenario A: Candidate A wins</p>
+                    <p class="text-gray-300 mb-2">
+                        Your 100 shares are each redeemed for $1.00. You receive $100 back, making a profit of $60.
+                    </p>
+                    <p class="font-semibold text-gray-100">Scenario B: Candidate A loses</p>
+                    <p class="text-gray-300">
+                        Your 100 shares expire worthless. You lose your initial investment of $40.
+                    </p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Example 2: The Box Office Hit</h3>
+                    <p class="text-gray-300 mb-2">
+                        A new movie is predicted to be a flop, and shares for "Movie A grosses over $100M" are trading at just $0.15. You are confident it will be a hit and buy 500 shares for $75.
+                    </p>
+                    <p class="font-semibold text-gray-100 mt-4">Scenario A: Movie A hits $100M</p>
+                    <p class="text-gray-300 mb-2">
+                        Your 500 shares are each redeemed for $1.00. You receive $500 back, making a profit of $425.
+                    </p>
+                    <p class="font-semibold text-gray-100">Scenario B: Movie A fails to hit $100M</p>
+                    <p class="text-gray-300">
+                        Your 500 shares expire worthless. You lose your initial investment of $75.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Widgets Section -->
+        <section id="widgets" class="bg-gray-900 rounded-lg shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-semibold text-white mb-6">Widgets in Action</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Custom Market Simulator Widget -->
+                <div class="bg-gray-800 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Market Simulator</h3>
+                    <div class="w-full h-80 bg-gray-900 rounded-lg mb-4">
+                        <canvas id="marketChart"></canvas>
+                    </div>
+                    <button id="addDataBtn" class="w-full bg-red-600 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition duration-300">
+                        Add New Data Point
+                    </button>
+                </div>
+
+                <!-- Embedded Google Maps Widget -->
+                <div class="bg-gray-800 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Our Global Presence</h3>
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe class="w-full h-80 rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14441.933390455797!2d55.26388402518489!3d25.19794356455146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e11644e5!2sDowntown%20Dubai%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1701391910609!5m2!1sen!2sin" frameborder="0" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('marketChart').getContext('2d');
+            let dataPoints = [
+                { x: 1, y: 0.50 },
+                { x: 2, y: 0.48 },
+                { x: 3, y: 0.52 },
+                { x: 4, y: 0.55 },
+                { x: 5, y: 0.53 }
+            ];
+
+            const marketChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Simulated Market Price',
+                        data: dataPoints,
+                        borderColor: '#dc2626',
+                        backgroundColor: 'rgba(220, 38, 38, 0.2)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#dc2626'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom',
+                            title: {
+                                display: true,
+                                text: 'Time',
+                                color: '#d1d5db'
+                            },
+                            ticks: {
+                                color: '#d1d5db'
+                            },
+                            grid: {
+                                color: '#374151'
+                            }
+                        },
+                        y: {
+                            min: 0,
+                            max: 1,
+                            title: {
+                                display: true,
+                                text: 'Price ($)',
+                                color: '#d1d5db'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toFixed(2);
+                                },
+                                color: '#d1d5db'
+                            },
+                            grid: {
+                                color: '#374151'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Price: $' + context.parsed.y.toFixed(2);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const addDataBtn = document.getElementById('addDataBtn');
+            addDataBtn.addEventListener('click', () => {
+                const lastX = dataPoints.length > 0 ? dataPoints[dataPoints.length - 1].x : 0;
+                const lastY = dataPoints.length > 0 ? dataPoints[dataPoints.length - 1].y : 0.5;
+                const newY = Math.max(0, Math.min(1, lastY + (Math.random() - 0.5) * 0.1));
+                dataPoints.push({ x: lastX + 1, y: newY });
+                marketChart.update();
+            });
+        });
+    </script>
+</body>
+</html>
